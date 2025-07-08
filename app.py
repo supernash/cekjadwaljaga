@@ -7,8 +7,8 @@ st.title("📅 Cek Jadwal Jagamu?")
 st.write("Mau ada acara yaaa...? Ayo cek dulu jadwal jagamu!")
 
 with st.form("shift_checker"):
-    tanggal_pagi1 = st.date_input("Masukkan tanggal Jaga Pagi ke-1", format="YYYY-MM-DD")
-    tanggal_dicek = st.date_input("Masukkan tanggal yang ingin dicek", format="YYYY-MM-DD")
+    tanggal_pagi1 = st.date_input("Masukkan tanggal Jaga Pagi ke-1", format="DD-MM-YYYY")
+    tanggal_dicek = st.date_input("Masukkan tanggal yang ingin dicek", format="DD-MM-YYYY")
     submitted = st.form_submit_button("Cek")
 
 if submitted:
@@ -25,4 +25,4 @@ if submitted:
     else:
         index_shift = delta_hari % len(shift_pattern)
         shift_hari_ini = shift_pattern[index_shift]
-        st.success(f"Pada tanggal {tanggal_dicek.strftime('%Y-%m-%d')}, kamu masuk: **{shift_hari_ini}**")
+        st.success(f"Pada tanggal {tanggal_dicek.strftime('%d-%m-%y')}, kamu masuk: **{shift_hari_ini}**")
